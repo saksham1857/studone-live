@@ -1,73 +1,66 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>StudONe – 2026</title>
+  <meta charset="UTF-8">
+  <title>StudONe Live Class</title>
   <style>
     body {
       margin: 0;
       background-color: #000;
-      font-family: Arial, sans-serif;
       display: flex;
       justify-content: center;
       align-items: center;
-      flex-direction: column;
-      min-height: 100vh;
+      height: 100vh;
     }
-
     #player-container {
       position: relative;
-      width: 100%;
-      max-width: 900px;
-      aspect-ratio: 16 / 9;
-      background: black;
+      width: 90vw;
+      height: 90vh;
     }
-
     video {
       width: 100%;
       height: 100%;
-      display: block;
+      background: #000;
     }
-
-    #logo {
+    .watermark {
       position: absolute;
       top: 10px;
       left: 10px;
+      color: white;
       background: rgba(0, 0, 0, 0.5);
-      color: #00ffff;
-      padding: 5px 10px;
-      font-size: 14px;
-      font-weight: bold;
-      border-radius: 4px;
-      pointer-events: none;
+      padding: 6px 12px;
+      font-size: 18px;
+      font-family: sans-serif;
+      border-radius: 8px;
     }
   </style>
 </head>
 <body>
-
   <div id="player-container">
-    <video id="video" controls autoplay muted playsinline></video>
-    <div id="logo">StudONe – 2026</div>
+    <video id="video" controls autoplay></video>
+    <div class="watermark">StudONe</div>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
   <script>
     const video = document.getElementById('video');
-    const streamURL = "https://live-api.sb-api.workers.dev/api/pw-live/livpw.php?base_url=https://d2xi11ixhb2xgs.cloudfront.net/&start=&qua=index_2.m3u8&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9kMnhpMTFpeGhiMnhncy5jbG91ZGZyb250Lm5ldC8qIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzQ4NzA1OTQxfX19XX0_&Key-Pair-Id=APKAXVKMENFCRKTG5XE2&Signature=sL8su~cN~vtYcPCK96ZL4oPd1iGvI29QKGCXubtuWD~tnlAgslFUPxmr8F-jmRWE4LAVEqpP9s8VGJ4ekowdsfzMH1e1MySb9ETHqx7ZItfxPc67MoTA~H9pSVv3DXGsYfTMa8C9pEmDyXZYOB8IRk8Q8opnzdeOh~ntbNicuLPHrG9VJGpPz5OeWXcmHGdUpne~C-vDn-s93PGTGLgNR9XiZoMCnTTJfAiCEufOaTwUtKWrzjJDydYj84B~JwJy92ymporKh224rE15AeoNwNTo2eRG28mT0GyhrBLHc160J5EyjMMCRu~O5BvIlhYEl67oFZfAx3~kAlKUEvWzNw__
-";
+    const videoSrc = 'https://your-stream-url.com/stream.m3u8'; // Replace with your .m3u8 link
 
     if (Hls.isSupported()) {
       const hls = new Hls();
-      hls.loadSource(streamURL);
+      hls.loadSource(videoSrc);
       hls.attachMedia(video);
       hls.on(Hls.Events.MANIFEST_PARSED, function () {
         video.play();
       });
     } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-      video.src = streamURL;
+      video.src = videoSrc;
       video.addEventListener('loadedmetadata', function () {
         video.play();
       });
     } else {
-      alert('Your browser does not support HL
+      alert('Your browser does not support HLS playback.');
+    }
+  </script>
+</body>
+</html>
