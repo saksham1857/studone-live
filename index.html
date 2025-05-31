@@ -54,7 +54,8 @@
   <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
   <script>
     const video = document.getElementById('video');
-    const streamURL = "https://d1qcficr3lu37x.cloudfront.net/file_library/videos/channel_vod_non_drm_hls/4360148/174550914289447880624/index_3.m3u8";
+    const streamURL = "https://live-api.sb-api.workers.dev/api/pw-live/livpw.php?base_url=https://d2xi11ixhb2xgs.cloudfront.net/&start=&qua=index_2.m3u8&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9kMnhpMTFpeGhiMnhncy5jbG91ZGZyb250Lm5ldC8qIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzQ4NzA1OTQxfX19XX0_&Key-Pair-Id=APKAXVKMENFCRKTG5XE2&Signature=sL8su~cN~vtYcPCK96ZL4oPd1iGvI29QKGCXubtuWD~tnlAgslFUPxmr8F-jmRWE4LAVEqpP9s8VGJ4ekowdsfzMH1e1MySb9ETHqx7ZItfxPc67MoTA~H9pSVv3DXGsYfTMa8C9pEmDyXZYOB8IRk8Q8opnzdeOh~ntbNicuLPHrG9VJGpPz5OeWXcmHGdUpne~C-vDn-s93PGTGLgNR9XiZoMCnTTJfAiCEufOaTwUtKWrzjJDydYj84B~JwJy92ymporKh224rE15AeoNwNTo2eRG28mT0GyhrBLHc160J5EyjMMCRu~O5BvIlhYEl67oFZfAx3~kAlKUEvWzNw__
+";
 
     if (Hls.isSupported()) {
       const hls = new Hls();
